@@ -22,7 +22,7 @@ func timeToHours(var time) -> float:
 
 func multiTime(var time, multi:float):
 	var minutes : int = (time.hour*HOUR) + time.minute
-	minutes = round(float(minutes) *multi)
+	minutes = int(round(minutes *multi))
 	var newHours = minOverflowHours(minutes)
 	var newMins = minutes-(newHours*HOUR)
 	
@@ -34,13 +34,13 @@ func multiTime(var time, multi:float):
 	return newTime
 
 func equalizeHours(hours : int) -> int:
-	var days : int = round(float(hours)/DAY)
-	var result = hours-(days*DAY)
+	var days : int = int(floor(float(hours)/DAY))
+	var result = abs(hours-(days*DAY))
 	return result
 
 func minOverflowHours(mins:int) -> int:
-	var result = float(mins/HOUR)
-	return int(round(result))
+	var result = float(mins)/HOUR
+	return int(floor(result))
 
 func hoursToMin(hours:float) -> int:
 	var mins = hours*HOUR

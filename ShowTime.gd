@@ -33,4 +33,4 @@ func addSleepCycle(cycles:int):
 	var sleepCycle = timerF.createTime(1,30)
 	var cycle1 = timerF.addTimes(now, sleepCycle)
 	var duration1 = timerF.timeToHours(sleepCycle)
-	text = "Cycle 1 - "+str(cycle1.hour) +":"+ ("%02d"%cycle1.minute) +" "+("%.1f"%duration1)+" hours of sleep"+"\n"
+	text = "Cycle "+str(cycles)+" - "+str(cycle1.hour) +":"+ ("%02d"%cycle1.minute) +" "+("%.1f"%duration1)+" hours of sleep"+"\n"

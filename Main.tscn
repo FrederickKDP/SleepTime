@@ -1,19 +1,17 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://ShowTime.gd" type="Script" id=1]
-[ext_resource path="res://Fira_Code_v5.2/ttf/FiraCode-Medium.ttf" type="DynamicFontData" id=2]
-
-[sub_resource type="DynamicFont" id=1]
-size = 12
-font_data = ExtResource( 2 )
+[ext_resource path="res://Nodes/TimeEntry.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Font.tres" type="DynamicFont" id=3]
 
 [node name="Main" type="Node"]
 
 [node name="Time" type="Label" parent="."]
-margin_top = 32.0
-margin_right = 40.0
-margin_bottom = 48.0
-custom_fonts/font = SubResource( 1 )
+margin_left = 109.062
+margin_top = 359.186
+margin_right = 187.062
+margin_bottom = 387.186
+custom_fonts/font = ExtResource( 3 )
 text = "00:00"
 script = ExtResource( 1 )
 __meta__ = {
@@ -23,7 +21,10 @@ __meta__ = {
 [node name="Label" type="Label" parent="."]
 margin_right = 40.0
 margin_bottom = 14.0
-text = "You should wake up around..."
+custom_fonts/font = ExtResource( 3 )
+text = "You should probably wake up around..."
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TimeEntry" parent="." instance=ExtResource( 2 )]

@@ -1,9 +1,15 @@
 extends Label
 
 onready var timerF = get_node("/root/TimeF")
-
+onready var vBox = get_node("VBoxContainer")
+var timeEntry = preload("res://Nodes/TimeEntry.tscn")
+var timeEntries = []
 
 func _ready():
+	timeEntries.append(makeTimeEntry())
+	timeEntries.append(makeTimeEntry())
+	timeEntries.append(makeTimeEntry())
+	#VBoxContainer(vBox).
 	var now = OS.get_time()
 	var sleepCycle = timerF.createTime(1,30)
 	var cycle1 = timerF.addTimes(now, sleepCycle)
@@ -26,6 +32,11 @@ func _ready():
 	text += "Cycle 4 - "+str(cycle4.hour) +":"+ ("%02d"%cycle4.minute) +" "+("%.1f"%duration4)+" hours of sleep"+"\n"
 	text += "Cycle 5 - "+str(cycle5.hour) +":"+ ("%02d"%cycle5.minute) +" "+("%.1f"%duration5)+" hours of sleep"+"\n"
 	text += "Cycle 6 - "+str(cycle6.hour) +":"+ ("%02d"%cycle6.minute) +" "+("%.1f"%duration6)+" hours of sleep"
+
+func makeTimeEntry():
+	var timeNode = timeEntry.instance()
+	vBox.add_child(timeNode)
+	return timeNode
 
 #TODO: Incomplete
 func addSleepCycle(cycles:int):

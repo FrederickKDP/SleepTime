@@ -1,10 +1,19 @@
 extends Label
 
 onready var timerF = get_node("/root/TimeF")
+onready var timeEntryScene = preload("res://Nodes/TimeEntry.tscn")
+#TODO: Change this node to be controller and factory only
+onready var vbox = get_node("../VBoxContainer")
 
+onready var now = OS.get_time()
 
 func _ready():
-	var now = OS.get_time()
+	add_time_entry()
+	add_time_entry()
+	add_time_entry()
+	add_time_entry()
+	
+	#break collection and store data in objs
 	var sleepCycle = timerF.createTime(1,30)
 	var cycle1 = timerF.addTimes(now, sleepCycle)
 	var cycle2 = timerF.addTimes(cycle1, sleepCycle)
@@ -27,10 +36,16 @@ func _ready():
 	text += "Cycle 5 - "+str(cycle5.hour) +":"+ ("%02d"%cycle5.minute) +" "+("%.1f"%duration5)+" hours of sleep"+"\n"
 	text += "Cycle 6 - "+str(cycle6.hour) +":"+ ("%02d"%cycle6.minute) +" "+("%.1f"%duration6)+" hours of sleep"
 
+func add_time_entry():
+	var timeEntryNode = timeEntryScene.instance()
+	vbox.add_child(timeEntryNode)
+	timeEntryNode.set_cycle("66")
+	return timeEntryNode
+
 #TODO: Incomplete
+#replace code above with this one
 func addSleepCycle(cycles:int):
-	var now = OS.get_time()
 	var sleepCycle = timerF.createTime(1,30)
 	var cycle1 = timerF.addTimes(now, sleepCycle)
-	var duration1 = timerF.timeToHours(sleepCycle)
-	text = "Cycle "+str(cycles)+" - "+str(cycle1.hour) +":"+ ("%02d"%cycle1.minute) +" "+("%.1f"%duration1)+" hours of sleep"+"\n"
+	var duration1 = timerF.timeToHours(timerF.multiTime(sleepCycle,cycles))
+	text += "Cycle "+str(cycles)+" - "+str(cycle1.hour) +":"+ ("%02d"%cycle1.minute) +" "+("%.1f"%duration1)+" hours of sleep"+"\n"

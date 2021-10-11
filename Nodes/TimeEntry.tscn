@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Fira_Code_v5.2/ttf/FiraCode-Medium.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Theme.tres" type="Theme" id=2]
+[ext_resource path="res://Nodes/TimeEntry.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 63
@@ -24,6 +25,8 @@ font_data = ExtResource( 1 )
 [node name="TimeEntry" type="Control"]
 anchor_right = 1.0
 margin_bottom = 132.0
+rect_min_size = Vector2( 600, 132 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

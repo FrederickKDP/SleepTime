@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Fira_Code_v5.2/ttf/FiraCode-Medium.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Theme.tres" type="Theme" id=2]
+[ext_resource path="res://Nodes/TimeEntry.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 63
@@ -25,22 +26,23 @@ font_data = ExtResource( 1 )
 anchor_right = 1.0
 margin_bottom = 132.0
 rect_min_size = Vector2( 600, 132 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Cycle" type="Panel" parent="."]
 margin_left = 50.0
-margin_right = 150.0
-margin_bottom = 100.0
+margin_right = 182.0
+margin_bottom = 132.0
 theme = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="Cycle"]
-margin_right = 100.0
-margin_bottom = 100.0
+margin_right = 132.0
+margin_bottom = 132.0
 custom_fonts/font = SubResource( 1 )
 text = "01"
 align = 1
@@ -50,17 +52,17 @@ __meta__ = {
 }
 
 [node name="Time" type="Panel" parent="."]
-margin_left = 178.0
+margin_left = 209.0
 margin_right = 546.0
-margin_bottom = 100.0
+margin_bottom = 132.0
 theme = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="Time"]
-margin_right = 366.0
-margin_bottom = 100.0
+margin_right = 332.0
+margin_bottom = 132.0
 custom_fonts/font = SubResource( 2 )
 text = "05:30"
 align = 1

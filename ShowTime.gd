@@ -34,17 +34,18 @@ func _ready():
 	text += "Cycle 5 - "+str(cycle5.hour) +":"+ ("%02d"%cycle5.minute) +" "+("%.1f"%duration5)+" hours of sleep"+"\n"
 	text += "Cycle 6 - "+str(cycle6.hour) +":"+ ("%02d"%cycle6.minute) +" "+("%.1f"%duration6)+" hours of sleep"
 	
-	add_time_entry(str(1), str(cycle1.hour) +":"+ ("%02d"%cycle1.minute))
-	add_time_entry(str(2), str(cycle2.hour) +":"+ ("%02d"%cycle2.minute))
-	add_time_entry(str(3), str(cycle3.hour) +":"+ ("%02d"%cycle3.minute))
-	add_time_entry(str(4), str(cycle4.hour) +":"+ ("%02d"%cycle4.minute))
+	add_time_entry(str(1), str(cycle1.hour) +":"+ ("%02d"%cycle1.minute), "%.1f"%duration1)
+	add_time_entry(str(2), str(cycle2.hour) +":"+ ("%02d"%cycle2.minute), "%.1f"%duration2)
+	add_time_entry(str(3), str(cycle3.hour) +":"+ ("%02d"%cycle3.minute), "%.1f"%duration3)
+	add_time_entry(str(4), str(cycle4.hour) +":"+ ("%02d"%cycle4.minute), "%.1f"%duration4)
 
 #TODO:Change time to not accept any string
-func add_time_entry(cycle:String, var time):
+func add_time_entry(cycle:String, var time, var slept):
 	var timeEntryNode = timeEntryScene.instance()
 	vbox.add_child(timeEntryNode)
 	timeEntryNode.set_cycle(cycle)
 	timeEntryNode.set_time(time)
+	timeEntryNode.set_slept(slept)
 	return timeEntryNode
 
 #TODO: Incomplete

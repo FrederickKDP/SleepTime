@@ -5,7 +5,7 @@
 [ext_resource path="res://Nodes/TimeEntry.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
-size = 63
+size = 35
 outline_size = 4
 outline_color = Color( 0.211765, 0.180392, 0.176471, 1 )
 use_filter = true
@@ -14,8 +14,8 @@ extra_spacing_space = 1
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 57
-outline_size = 8
+size = 35
+outline_size = 5
 outline_color = Color( 0.211765, 0.180392, 0.176471, 1 )
 use_filter = true
 extra_spacing_char = 2
@@ -24,25 +24,28 @@ font_data = ExtResource( 1 )
 
 [node name="TimeEntry" type="Control"]
 anchor_right = 1.0
-margin_bottom = 132.0
-rect_min_size = Vector2( 600, 132 )
+margin_right = -75.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 525, 100 )
 script = ExtResource( 3 )
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": false,
+"_editor_description_": "TODO:Make smaller to fit screen"
 }
 
 [node name="Cycle" type="Panel" parent="."]
 margin_left = 50.0
-margin_right = 182.0
-margin_bottom = 132.0
+margin_top = 5.0
+margin_right = 130.0
+margin_bottom = 85.0
 theme = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="Cycle"]
-margin_right = 132.0
-margin_bottom = 132.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 custom_fonts/font = SubResource( 1 )
 text = "01"
 align = 1
@@ -52,19 +55,41 @@ __meta__ = {
 }
 
 [node name="Time" type="Panel" parent="."]
-margin_left = 209.0
-margin_right = 546.0
-margin_bottom = 132.0
+margin_left = 155.0
+margin_top = 5.0
+margin_right = 355.0
+margin_bottom = 85.0
 theme = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="Time"]
-margin_right = 332.0
-margin_bottom = 132.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 custom_fonts/font = SubResource( 2 )
 text = "05:30"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slept" type="Panel" parent="."]
+margin_left = 380.0
+margin_top = 5.0
+margin_right = 495.0
+margin_bottom = 85.0
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Slept"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 1 )
+text = "5.3"
 align = 1
 valign = 1
 __meta__ = {

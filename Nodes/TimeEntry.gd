@@ -1,3 +1,4 @@
+#TODO: Add hours slept
 extends Control
 
 func set_cycle(txt:String):

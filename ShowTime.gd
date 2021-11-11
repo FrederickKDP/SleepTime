@@ -18,6 +18,7 @@ func _ready():
 	var cycle4 = timerF.addTimes(cycle3, sleepCycle)
 	var cycle5 = timerF.addTimes(cycle4, sleepCycle)
 	var cycle6 = timerF.addTimes(cycle5, sleepCycle)
+	var cycle7 = timerF.addTimes(cycle6, sleepCycle)
 	
 	var duration1 = timerF.timeToHours(sleepCycle)
 	var duration2 = timerF.timeToHours(timerF.multiTime(sleepCycle,2))
@@ -25,6 +26,7 @@ func _ready():
 	var duration4 = timerF.timeToHours(timerF.multiTime(sleepCycle,4))
 	var duration5 = timerF.timeToHours(timerF.multiTime(sleepCycle,5))
 	var duration6 = timerF.timeToHours(timerF.multiTime(sleepCycle,6))
+	var duration7 = timerF.timeToHours(timerF.multiTime(sleepCycle,7))
 	
 	#TODO:Remove this
 	text = "Cycle 1 - "+str(cycle1.hour) +":"+ ("%02d"%cycle1.minute) +" "+("%.1f"%duration1)+" hours of sleep"+"\n"
@@ -38,6 +40,7 @@ func _ready():
 	add_time_entry(str(2), str(cycle2.hour) +":"+ ("%02d"%cycle2.minute), "%.1f"%duration2)
 	add_time_entry(str(3), str(cycle3.hour) +":"+ ("%02d"%cycle3.minute), "%.1f"%duration3)
 	add_time_entry(str(4), str(cycle4.hour) +":"+ ("%02d"%cycle4.minute), "%.1f"%duration4)
+	add_time_entry(str(5), str(cycle5.hour) +":"+ ("%02d"%cycle5.minute), "%.1f"%duration5)
 
 #TODO:Change time to not accept any string
 func add_time_entry(cycle:String, var time, var slept):
